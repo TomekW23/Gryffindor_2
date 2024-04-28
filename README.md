@@ -1,4 +1,4 @@
-#Reprezentujemy 
+##Reprezentujemy 
 <span style ="color:red"> Gryffindor 2 </span>
 ## Uczestnicy domu 
 - *Mateusz Skierski* (https://github.com/MatthewSkierski)
@@ -8,8 +8,8 @@
 - *Patryk Śliwiński* (https://github.com/patryksliwinski)
 
 ##Zasady współpracy
-- **Zrozumiałe nazwy zmiennych**
-- **Branche nazywamy Zadanie_numer zadania**
+- Zrozumiałe nazwy zmiennych
+- Branche nazywamy **Zadanie_numer zadania**
 
-##Zakaz
+##Zakaz  
 ~~Usuwania plików~~
