@@ -44,3 +44,7 @@ print(koszt)
 # Przykładowe wywołanie funkcji bez opcji specjalnej
 koszt_bez_specjalnej = wybierz_sowe_zwroc_koszt(True, 'lokalna', 'list')
 print(koszt_bez_specjalnej)
+
+koszt = wybierz_sowe_zwroc_koszt(True, 'lokalna', 'list', 'list gończy')
+print(koszt)
+
