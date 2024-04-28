@@ -8,8 +8,8 @@
 - *Patryk Śliwiński* (https://github.com/patryksliwinski)
 
 ##Zasady współpracy
-- **Zrozumiałe nazwy zmiennych**
-- Branche nazywamy 'Zadanie_numer zadanie'
+- Zrozumiałe **nazwy zmiennych**
+- Branche nazywamy **'Zadanie_numer zadanie'**
 
 ##Zakaz  
 ~~Usuwania plików~~
