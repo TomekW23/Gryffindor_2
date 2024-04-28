@@ -1,5 +1,5 @@
 # **Reprezentujemy** 
-<span style="color:red">Gryffindor 2</span>
+<span style="color:red">Gryffindor 2</span>(imgs/123.jpg)
 ## Uczestnicy domu 
 - *Mateusz Skierski* (https://github.com/MatthewSkierski)
 - *Huber Krajewski* (https://github.com/hubertkra00)
