@@ -1,4 +1,4 @@
-##Reprezentujemy 
+## Reprezentujemy 
 <span style ="color:red"> Gryffindor 2 </span>
 ## Uczestnicy domu 
 - *Mateusz Skierski* (https://github.com/MatthewSkierski)
