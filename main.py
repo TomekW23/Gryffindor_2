@@ -1,4 +1,22 @@
 import csv
+import time
+import random
+
+
+adresat = input("Podaj adresata listu:")
+tresc = input("Podaj treść listu:")
+
+def wyslij_sowe(adresat, tresc_listu):
+    print(f"Wysyłam sowe do {adresat} z treścią: {tresc_listu}")
+    time.sleep(1)
+    return random.choices([True, False], weights=(90, 10), k=1)[0]
+
+wysylam_list = wyslij_sowe(adresat, tresc)
+
+if wysylam_list:
+    print("Sowa została pomyślnie wysłana!")
+else:
+    print("Wysłanie sowy nie powiodło się.")
 
 def nadaj_sowe(adresat, tresc_wiadomosci, potwierdzenie_odbioru, odleglosc, typ, specjalna):
     # Funkcja do obliczenia kosztu sowy na podstawie danych wejściowych
@@ -10,6 +28,7 @@ def nadaj_sowe(adresat, tresc_wiadomosci, potwierdzenie_odbioru, odleglosc, typ,
         koszt = 10
         return koszt
 
+
     # Funkcja do konwersji słownika na ciąg znaków
     def waluta_dict_na_str(waluta_dict):
         # Tutaj należy zaimplementować logikę konwersji słownika na ciąg znaków
@@ -17,6 +36,7 @@ def nadaj_sowe(adresat, tresc_wiadomosci, potwierdzenie_odbioru, odleglosc, typ,
         
         # Placeholder - zakładamy, że zwracamy wartość z klucza "PLN"
         return waluta_dict["PLN"]
+
 
     # Obliczanie kosztu przesyłki
     koszt_przesylki = wybierz_sowe_zwroc_koszt(odleglosc, typ, specjalna)
