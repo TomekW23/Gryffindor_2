@@ -112,3 +112,19 @@ print(waluta_dict_na_str({
     "sykl" : 20,
     "knut" : 30
 }))
+
+import csv
+from datetime import datetime
+from wybor_sowy import wybierz_sowe_zwroc_koszt
+
+def waluta_dict_na_str(koszt):
+    return f"{koszt:.2f} PLN"
+
+def nadaj_sowe(adresat, tresc, potwierdzenie, odleglosc, typ, specjalna):
+    koszt = wybierz_sowe_zwroc_koszt(adresat, tresc, potwierdzenie, odleglosc, typ, specjalna)
+    koszt_str = waluta_dict_na_str(koszt)
+    potwierdzenie_str = "TAK" if potwierdzenie else "NIE"
+    
+    with open('poczta_nadania_lista.csv', mode='a', newline='', encoding='utf-8') as file:
+        writer = csv.writer(file)
+        writer.writerow([adresat, tresc, koszt_str, potwierdzenie_str])
