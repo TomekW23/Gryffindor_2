@@ -2,7 +2,7 @@ def waluta_str_na_dict(waluta_str: str) -> dict:
     ciag = waluta_str.split(" ")
     
     galeon = 0
-    sykl = 1
+    sykl = 0
     knut = 0
 
     for element_index in range(len(ciag)):
