@@ -4,13 +4,13 @@ def waluta_dict_na_str(waluta_dict: dict) -> str:
     # Ilość knutów
     knut_raw = waluta_dict["knut"] 
     # Ilość knutów po odjęciu pełnych sykli
-    knut = knut_raw % 17
+    knut = knut_raw % 21
     # Ilość sykli
-    sykl_raw = waluta_dict["sykl"] + math.floor(knut_raw/17)
+    sykl_raw = waluta_dict["sykl"] + math.floor(knut_raw/21)
     # Ilość sykli po odjęciu pełnych galeonów
-    sykl = sykl_raw % 21
+    sykl = sykl_raw % 17
     # Ilość galeonów
-    galeon = waluta_dict["galeon"]+math.floor(sykl_raw/21)
+    galeon = waluta_dict["galeon"]+math.floor(sykl_raw/17)
     
     response_list = []
     
