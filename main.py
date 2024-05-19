@@ -34,7 +34,6 @@ def nadaj_sowe(adresat, tresc_wiadomosci, potwierdzenie_odbioru, odleglosc, typ,
 
 # Przykładowe użycie funkcji nadaj_sowe
 nadaj_sowe("Jan Kowalski", "Przykładowa wiadomość", True, "krajowa", "paczka", "nie dotyczy")
-<<<<<<< HEAD
 def wybierz_sowe_zwroc_koszt(potwierdzenie_odbioru, odleglosc, typ, specjalna=""):
     koszt = {
         "galeon": 0,
@@ -85,7 +84,6 @@ print(koszt_bez_specjalnej)
 koszt = wybierz_sowe_zwroc_koszt(True, 'lokalna', 'list', 'list gończy')
 print(koszt)
 
-=======
 def licz_sume(monety):
     # Wartości nominalne
     nom_geleon = 17
@@ -200,4 +198,3 @@ print(waluta_dict_na_str({
     "sykl" : 20,
     "knut" : 30
 }))
->>>>>>> staging
