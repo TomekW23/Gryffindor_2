@@ -1,3 +1,5 @@
+
+
 import csv
 import time
 import random
@@ -54,6 +56,7 @@ def nadaj_sowe(adresat, tresc_wiadomosci, potwierdzenie_odbioru, odleglosc, typ,
 
 # Przykładowe użycie funkcji nadaj_sowe
 nadaj_sowe("Jan Kowalski", "Przykładowa wiadomość", True, "krajowa", "paczka", "nie dotyczy")
+
 def wybierz_sowe_zwroc_koszt(potwierdzenie_odbioru, odleglosc, typ, specjalna=""):
     koszt = {
         "galeon": 0,
@@ -104,6 +107,7 @@ print(koszt_bez_specjalnej)
 koszt = wybierz_sowe_zwroc_koszt(True, 'lokalna', 'list', 'list gończy')
 print(koszt)
 
+
 def licz_sume(monety):
     # Wartości nominalne
     nom_geleon = 17
@@ -130,6 +134,7 @@ def licz_sume(monety):
         "knut": suma_knut
     }
 
+
 # Przykładowe wejście
 wejscie = {
     "geleon": [1, 3, 5],
@@ -142,9 +147,10 @@ print(licz_sume(wejscie))
 
 import math
 
+
 def waluta_str_na_dict(waluta_str: str) -> dict:
     ciag = waluta_str.split(" ")
-    
+
     galeon = 0
     sykl = 0
     knut = 0
@@ -152,18 +158,19 @@ def waluta_str_na_dict(waluta_str: str) -> dict:
     for element_index in range(len(ciag)):
         # Sprawdź czy element to galeon jesli tak to poprzedni element jest wartością galeonu
         if ciag[element_index].startswith("g"):
-            galeon = int(ciag[element_index-1])
+            galeon = int(ciag[element_index - 1])
             continue
         # Sprawdź czy element to sykl jesli tak to poprzedni element jest wartością sykla
         if ciag[element_index].startswith("s"):
-            sykl = int(ciag[element_index-1])
+            sykl = int(ciag[element_index - 1])
             continue
         # Sprawdź czy element to knut jesli tak to poprzedni element jest wartością knuta
         if ciag[element_index].startswith("k"):
-            knut = int(ciag[element_index-1])
+            knut = int(ciag[element_index - 1])
             continue
 
     return {"galeon": galeon, "sykl": sykl, "knut": knut}
+
 
 # Przykład wywołania z samymi knutami
 print(waluta_str_na_dict("13 knut"))
@@ -171,25 +178,26 @@ print(waluta_str_na_dict("13 knut"))
 # Przykład wywołania z wszystkimi monetami
 print(waluta_str_na_dict("17 galeon 2 sykl 13 knut"))
 
+
 def waluta_dict_na_str(waluta_dict: dict) -> str:
     # Ilość knutów
-    knut_raw = waluta_dict["knut"] 
+    knut_raw = waluta_dict["knut"]
     # Ilość knutów po odjęciu pełnych sykli
     knut = knut_raw % 21
     # Ilość sykli
-    sykl_raw = waluta_dict["sykl"] + math.floor(knut_raw/21)
+    sykl_raw = waluta_dict["sykl"] + math.floor(knut_raw / 21)
     # Ilość sykli po odjęciu pełnych galeonów
     sykl = sykl_raw % 17
     # Ilość galeonów
-    galeon = waluta_dict["galeon"]+math.floor(sykl_raw/17)
-    
+    galeon = waluta_dict["galeon"] + math.floor(sykl_raw / 17)
+
     response_list = []
-    
+
     # Wypisz galeony jeśli istnieją
     if galeon != 0:
         response_list.append(f"{galeon} galeon")
     # Wypisz sykle jeśli istnieją
-    if sykl !=0:
+    if sykl != 0:
         response_list.append(f"{sykl} sykl")
     # Wypisz knuty jeśli istnieją
     if knut != 0:
@@ -202,19 +210,64 @@ def waluta_dict_na_str(waluta_dict: dict) -> str:
 
 # Przykład wywołania tylko z knutami
 print(waluta_dict_na_str({
-    "galeon" : 0,
-    "sykl" : 0,
-    "knut" : 13
+    "galeon": 0,
+    "sykl": 0,
+    "knut": 13
 }))
 # Przykład wywołania z wszystkimi monetami
 print(waluta_dict_na_str({
-    "galeon" : 17,
-    "sykl" : 2,
-    "knut" : 13
+    "galeon": 17,
+    "sykl": 2,
+    "knut": 13
 }))
 # Przykład wywołania z wszystkimi monetami i przekształceniem na wyższą monete
 print(waluta_dict_na_str({
-    "galeon" : 10,
-    "sykl" : 20,
-    "knut" : 30
+    "galeon": 10,
+    "sykl": 20,
+    "knut": 30
 }))
+
+
+import pandas as pd
+
+
+def wyslij_sowy(adresat, tresc_wiadomosci):
+    # Implementacja funkcji wysyłającej sowy
+    pass
+
+
+def poczta_wyslij_sowy(sciezka_csv):
+    # Wczytanie danych z pliku CSV
+    df = pd.read_csv(sciezka_csv)
+
+    # Iteracja po każdym wierszu w ramce danych
+    for index, row in df.iterrows():
+        adresat = row['adresat']
+        tresc_wiadomosci = row['treść wiadomości']
+        koszt_przesylki = row['koszt przesyłki']
+        potwierdzenie_odbioru = row['potwierdzenie odbioru']
+
+        # Wysyłanie sowy
+        sowa_doleciala = wyslij_sowy(adresat, tresc_wiadomosci)
+
+        # Obliczanie rzeczywistego kosztu
+        if sowa_doleciala:
+            rzeczywisty_koszt = koszt_przesylki
+        else:
+            if potwierdzenie_odbioru == 'TAK':
+                rzeczywisty_koszt = 0
+            else:
+                rzeczywisty_koszt = koszt_przesylki
+
+        # Aktualizacja danych w ramce danych
+        df.at[index, 'rzeczywisty koszt'] = rzeczywisty_koszt
+
+    # Zapisanie danych do nowego pliku CSV
+    output_filename = f"output_sowy_z_poczty_{pd.Timestamp.now().strftime('%d_%m_%Y')}.csv"
+    df.to_csv(output_filename, index=False)
+
+
+# Testowanie funkcji
+poczta_wyslij_sowy("C:/Users/Lenovo/Gryffindor_2/import.csv")
+=======
+
