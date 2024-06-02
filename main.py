@@ -1,24 +1,17 @@
 
-
+import pandas as pd
+import math
 import csv
 import time
 import random
 
 
-adresat = input("Podaj adresata listu:")
-tresc = input("Podaj treść listu:")
 
 def wyslij_sowe(adresat, tresc_listu):
     print(f"Wysyłam sowe do {adresat} z treścią: {tresc_listu}")
     time.sleep(1)
     return random.choices([True, False], weights=(90, 10), k=1)[0]
 
-wysylam_list = wyslij_sowe(adresat, tresc)
-
-if wysylam_list:
-    print("Sowa została pomyślnie wysłana!")
-else:
-    print("Wysłanie sowy nie powiodło się.")
 
 def nadaj_sowe(adresat, tresc_wiadomosci, potwierdzenie_odbioru, odleglosc, typ, specjalna):
     # Funkcja do obliczenia kosztu sowy na podstawie danych wejściowych
@@ -54,8 +47,6 @@ def nadaj_sowe(adresat, tresc_wiadomosci, potwierdzenie_odbioru, odleglosc, typ,
         writer = csv.writer(file)
         writer.writerow([adresat, tresc_wiadomosci, koszt_przesylki_str, potwierdzenie_odbioru_str])
 
-# Przykładowe użycie funkcji nadaj_sowe
-nadaj_sowe("Jan Kowalski", "Przykładowa wiadomość", True, "krajowa", "paczka", "nie dotyczy")
 
 def wybierz_sowe_zwroc_koszt(potwierdzenie_odbioru, odleglosc, typ, specjalna=""):
     koszt = {
@@ -96,17 +87,6 @@ def wybierz_sowe_zwroc_koszt(potwierdzenie_odbioru, odleglosc, typ, specjalna=""
     return koszt
 
 
-# Przykładowe wywołanie funkcji z opcją specjalną wyjec
-koszt = wybierz_sowe_zwroc_koszt(True, 'lokalna', 'list', 'wyjec')
-print(koszt)
-
-# Przykładowe wywołanie funkcji bez opcji specjalnej
-koszt_bez_specjalnej = wybierz_sowe_zwroc_koszt(True, 'lokalna', 'list')
-print(koszt_bez_specjalnej)
-
-koszt = wybierz_sowe_zwroc_koszt(True, 'lokalna', 'list', 'list gończy')
-print(koszt)
-
 
 def licz_sume(monety):
     # Wartości nominalne
@@ -135,17 +115,6 @@ def licz_sume(monety):
     }
 
 
-# Przykładowe wejście
-wejscie = {
-    "geleon": [1, 3, 5],
-    "sykl": [18, 20, 10],
-    "knut": [30, 40, 7]
-}
-
-# Wyświetlanie wyniku
-print(licz_sume(wejscie))
-
-import math
 
 
 def waluta_str_na_dict(waluta_str: str) -> dict:
@@ -170,13 +139,6 @@ def waluta_str_na_dict(waluta_str: str) -> dict:
             continue
 
     return {"galeon": galeon, "sykl": sykl, "knut": knut}
-
-
-# Przykład wywołania z samymi knutami
-print(waluta_str_na_dict("13 knut"))
-
-# Przykład wywołania z wszystkimi monetami
-print(waluta_str_na_dict("17 galeon 2 sykl 13 knut"))
 
 
 def waluta_dict_na_str(waluta_dict: dict) -> str:
@@ -206,29 +168,6 @@ def waluta_dict_na_str(waluta_dict: dict) -> str:
     response = ' '.join(response_list)
 
     return response
-
-
-# Przykład wywołania tylko z knutami
-print(waluta_dict_na_str({
-    "galeon": 0,
-    "sykl": 0,
-    "knut": 13
-}))
-# Przykład wywołania z wszystkimi monetami
-print(waluta_dict_na_str({
-    "galeon": 17,
-    "sykl": 2,
-    "knut": 13
-}))
-# Przykład wywołania z wszystkimi monetami i przekształceniem na wyższą monete
-print(waluta_dict_na_str({
-    "galeon": 10,
-    "sykl": 20,
-    "knut": 30
-}))
-
-
-import pandas as pd
 
 
 def wyslij_sowy(adresat, tresc_wiadomosci):
@@ -266,8 +205,4 @@ def poczta_wyslij_sowy(sciezka_csv):
     output_filename = f"output_sowy_z_poczty_{pd.Timestamp.now().strftime('%d_%m_%Y')}.csv"
     df.to_csv(output_filename, index=False)
 
-
-# Testowanie funkcji
-poczta_wyslij_sowy("C:/Users/Lenovo/Gryffindor_2/import.csv")
-=======
 
