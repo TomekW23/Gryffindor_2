@@ -1,7 +1,6 @@
 name: Test-licz_sume
 
 on:
-- Zadanie_3_test1
   push:
     branches-ignore:
       - main
@@ -11,7 +10,7 @@ permissions:
   contents: read
 
 jobs:
-  waluta_str_na_dict:
+  test_3:
 
     runs-on: ubuntu-latest
 
@@ -26,4 +25,3 @@ jobs:
     - name: Test-licz_sume
       run: |
         python test_3.py
-test_3.py:
