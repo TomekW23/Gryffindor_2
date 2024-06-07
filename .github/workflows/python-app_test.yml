@@ -28,4 +28,4 @@ jobs:
       
     - name: Testowanie zadania_2
       run: |
-        Zadanie_2_test.py
+        test_Zadanie_2.py
